@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
+import Main from './Main';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -24,5 +25,5 @@ const element4 = <ul>
   }
 </ul>
 root.render(
-  element4
+  <Main />
 );
