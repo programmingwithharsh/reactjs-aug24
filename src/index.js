@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 import Main from './Main';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -24,6 +26,14 @@ const element4 = <ul>
     ))
   }
 </ul>
+
+const username = "Swati"; // string 
+const interests = ["Cycling", "Travelling", "Movies", "Coffies"]; // array
+const birth = { // object
+  year: 2000,
+  place: "Mumbai"
+};
+
 root.render(
-  <Main />
+  <Main usernameProps={username} interestProps={interests} birthProps={birth} />
 );

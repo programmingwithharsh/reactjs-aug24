@@ -1,3 +1,9 @@
 export default function Star() {
-    return <div>This is Star Functional Component</div>
+    return <div>
+        <span className="fa fa-star"></span>
+        <span className="fa fa-star"></span>
+        <span className="fa fa-star"></span>
+        <span className="fa fa-star"></span>
+        <span className="fa fa-star"></span>
+    </div>
 }
