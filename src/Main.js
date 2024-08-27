@@ -8,6 +8,8 @@ import About from './About';
 import UsersList from './UserList';
 import Customer from './Customer';
 import Login from './Login';
+import ProductDetail from './ProductDetail';
+import NotFound from './NotFound';
 
 export default class Main extends React.Component { // Inheritance
     constructor(props) { // lifecycle
@@ -80,10 +82,12 @@ export default class Main extends React.Component { // Inheritance
                 <Route path='/' element={<Nav />}>
                     <Route index element={<Welcome usernameProps={this.props.usernameProps} />} />
                     <Route path="/products" element={<ProductList products={this.state.products} />} />
+                    <Route path="/products/:id" element={<ProductDetail />} />
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/users" element={<UsersList />} />
                     <Route path="/customers" element={<Customer />} />
+                    <Route path="*" element={<NotFound />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
             </Routes>
