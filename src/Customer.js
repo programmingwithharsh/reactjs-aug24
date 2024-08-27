@@ -1,7 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Customer() {
     const [customers, setCustomers] = useState([]); // useState hook, users is empty array, and setUsers we use to update users
+    
+    useEffect(() => {
+        fetch("http://localhost:5000/customers/", {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                setCustomers(result) // here we are using 
+            })
+    }, [])
 
     return (<>
         <h1>Add Customer</h1>

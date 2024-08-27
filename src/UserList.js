@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function UsersList(props) {
+export default function UsersList() {
 
     const [users, setUsers] = useState([]); // useState hook, users is empty array, and setUsers we use to update users
     /*
@@ -14,6 +14,18 @@ export default function UsersList(props) {
             users is like this.state
             setUsers is like this.setState({})
     */
+
+    let userUrl = "http://localhost:4000/users/";
+
+    useEffect(() => {
+        fetch(userUrl, {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                setUsers(result) // here we are using 
+            })
+    }, [])
 
     return <div className="table-responsive">
         <table className="table table-striped table-hover">
