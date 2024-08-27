@@ -1,7 +1,10 @@
 import Star from "./Star";
+import Product from './Product';
+
 export default function ProductList(props) {
     console.log("ProductList", props);
     return <><h1>Product List Component</h1>
+        <Product />
         <table className="table table-striped table-hover">
             <thead>
                 <tr>

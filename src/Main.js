@@ -2,8 +2,12 @@ import React from 'react';
 import AddProduct from './AddProduct';
 import Welcome from './Welcome';
 import ProductList from './ProductList';
-import Product from './Product';
-import Title from './Title';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './Nav';
+import About from './About';
+import UsersList from './UserList';
+import Customer from './Customer';
+import Login from './Login';
 
 export default class Main extends React.Component { // Inheritance
     constructor(props) { // lifecycle
@@ -68,26 +72,21 @@ export default class Main extends React.Component { // Inheritance
         console.log("Main Component Props is", this.props);
     }
 
-    updateUsername = () => {
-        this.setState({ // update state, whenever state update component rerender
-            username: "Ashish"
-        })
-    }
-
     render() { // lifecycle
         console.log("Render Lifecyle - 2");
         console.log("Main Component State is ", this.state);
-        return <div>This is Main Class Component
-            <h1>React State - State is having, username is {this.state.username}</h1>
-            <button className="btn btn-primary" onClick={this.updateUsername}>Update State Username</button>
-
-            <h1>React Props - Props is having, username is {this.props.usernameProps}</h1>
-            <hr />
-            <AddProduct />
-            <Welcome />
-            <ProductList products={this.state.products} />
-            <Product />
-            <Title />
-        </div>
+        return <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Nav />}>
+                    <Route index element={<Welcome usernameProps={this.props.usernameProps} />} />
+                    <Route path="/products" element={<ProductList products={this.state.products} />} />
+                    <Route path="/addproduct" element={<AddProduct />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/users" element={<UsersList />} />
+                    <Route path="/customers" element={<Customer />} />
+                </Route>
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </BrowserRouter>
     }
 }

@@ -6,6 +6,6 @@ export default class AddProduct extends React.Component {
     }
 
     render() {
-        return <div>This is AddProduct Class Component</div>
+        return <div>add product works!</div>
     }
 }
