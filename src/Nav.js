@@ -32,6 +32,9 @@ export default function Nav() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/hooks">Hooks</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

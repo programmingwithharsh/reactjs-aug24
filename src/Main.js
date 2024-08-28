@@ -12,6 +12,7 @@ import ProductDetail from './ProductDetail';
 import NotFound from './NotFound';
 import Register from './Register';
 import { loadProducts, addProduct } from './redux/actions';
+import Hooks from './hooks/Hooks';
 
 export default class Main extends React.Component { // Inheritance
     constructor(props) { // lifecycle
@@ -112,6 +113,7 @@ export default class Main extends React.Component { // Inheritance
                     <Route path="/users" element={<UsersList />} />
                     <Route path="/customers" element={<Customer />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/hooks" element={<Hooks />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
