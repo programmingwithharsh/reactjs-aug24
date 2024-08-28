@@ -74,6 +74,13 @@ export default class Main extends React.Component { // Inheritance
         console.log("Main Component Props is", this.props);
     }
 
+    addProduct = (productSubmitted) => {
+        debugger
+        this.setState((state) => ({ // whenever state udpate, component rerender
+            products: state.products.concat([productSubmitted])
+        }))
+    }
+
     render() { // lifecycle
         console.log("Render Lifecyle - 2");
         console.log("Main Component State is ", this.state);
@@ -83,7 +90,7 @@ export default class Main extends React.Component { // Inheritance
                     <Route index element={<Welcome usernameProps={this.props.usernameProps} />} />
                     <Route path="/products" element={<ProductList products={this.state.products} />} />
                     <Route path="/products/:id" element={<ProductDetail />} />
-                    <Route path="/addproduct" element={<AddProduct />} />
+                    <Route path="/addproduct" element={<AddProduct onAddProduct={(addedProduct) => this.addProduct(addedProduct)} />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/users" element={<UsersList />} />
                     <Route path="/customers" element={<Customer />} />

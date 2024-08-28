@@ -1,3 +1,5 @@
+import './Title.scss';
+
 export default function Title() {
-    return <div>title works!</div>
+    return <div className="division">title works!</div>
 }

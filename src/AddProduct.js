@@ -2,12 +2,13 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 export default class AddProduct extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             redirect: false
         }
         console.log("AddProduct constructor");
+        console.log(this.props);
     }
 
     goToProducts = () => {
@@ -30,6 +31,18 @@ export default class AddProduct extends React.Component {
         const description = event.target.elements.description.value;
         const price = event.target.elements.price.value;
         const starRating = event.target.elements.starRating.value;
+
+        const product = {
+            productName,
+            imageUrl,
+            productCode,
+            releaseDate,
+            description,
+            price,
+            starRating
+        }
+
+        this.props.onAddProduct(product);
 
         if (productName == "") {
             alert("Enter Product Name");

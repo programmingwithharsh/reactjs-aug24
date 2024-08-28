@@ -1,6 +1,7 @@
+import styles from "./Login.module.css";
 const Login = () => {
     return (<>
-        <div>Login works!</div>
+        <div className={styles.footer}>Login works!</div>
     </>);
 }
 
