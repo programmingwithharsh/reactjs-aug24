@@ -10,6 +10,7 @@ import Customer from './Customer';
 import Login from './Login';
 import ProductDetail from './ProductDetail';
 import NotFound from './NotFound';
+import Register from './Register';
 
 export default class Main extends React.Component { // Inheritance
     constructor(props) { // lifecycle
@@ -94,6 +95,7 @@ export default class Main extends React.Component { // Inheritance
                     <Route path="/about" element={<About />} />
                     <Route path="/users" element={<UsersList />} />
                     <Route path="/customers" element={<Customer />} />
+                    <Route path="/register" element={<Register />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
