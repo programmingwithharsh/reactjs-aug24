@@ -11,6 +11,7 @@ import Login from './Login';
 import ProductDetail from './ProductDetail';
 import NotFound from './NotFound';
 import Register from './Register';
+import { loadProducts, addProduct } from './redux/actions';
 
 export default class Main extends React.Component { // Inheritance
     constructor(props) { // lifecycle
@@ -79,6 +80,21 @@ export default class Main extends React.Component { // Inheritance
         debugger
         this.setState((state) => ({ // whenever state udpate, component rerender
             products: state.products.concat([productSubmitted])
+        }))
+    }
+
+    componentDidMount() { // lifecycle, called after render
+        console.log("ComponentDidMount Lifecyle - 3");
+        this.props.dispatch(loadProducts()); // calling load products action
+        this.props.dispatch(addProduct({
+            "productId": 6,
+            "productName": "iPhone",
+            "productCode": "100",
+            "releaseDate": "2024",
+            "description": "iPhone is Excellent Phone",
+            "price": 1200,
+            "starRating": 5,
+            "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
         }))
     }
 
